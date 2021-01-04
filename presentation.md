@@ -1,3 +1,3 @@
-# a link to your YouTube video;
+# https://youtu.be/BvIfhC8O9wY
 
-# a link to your Reveal presentation's deploy;
+# https://sovanmarat-presentation.netlify.app/
