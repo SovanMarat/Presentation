@@ -1,49 +1,172 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+	<title>Event loop</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Event loop</h1>
+				<p style="font-size: 25px;">Presentation is prepared by Marat Sovan</p>
+				<a href="https://github.com/sovanmarat" style="font-size: 25px;">https://github.com/sovanmarat</a>
+			</section>
+			<section>
+				<ul style="font-size: 45px;">
+					<li>
+						what is Event loop
+					</li>
+					<li>
+						why do we need to know how the Event loop works
+					</li>
+				</ul>
+			</section>
+			<section class="slide3">
+				<section>
+					JAVASCRIPT ENGINE OVERVIEW
+					<div>
+						<img src="/Presentation/img/slide3.png">
+					</div>
+				</section>
+				<section>
+					<pre><code class="hljs" data-trim>
+						function multiply(x, y) {
+						  return x * y;
+						}
+			
+						function printSquare(x) {
+						  let s = multiply(x, x);
+						  console.log(s);
+						}
+			
+						printSquare(3);
+					  </code></pre>
+					<div>
+						<p class="fragment" style="position: absolute; top: 333px; left: 333px;">
+							<img src="/Presentation/img/3_1.png">
+						</p>
+						<p class="fragment" style="position: absolute; top: 333px; left: 333px;">
+							<img src="/Presentation/img/3_2.png">
+						</p>
+						<p class="fragment" style="position: absolute; top: 333px; left: 333px;">
+							<img src="/Presentation/img/3_3.png">
+						</p>
+						<p class="fragment" style="position: absolute; top: 333px; left: 333px;">
+							<img src="/Presentation/img/3_2.png">
+						</p>
+						<p class="fragment" style="position: absolute; top: 333px; left: 333px;">
+							<img src="/Presentation/img/3_1.png">
+						</p>
+						<p class="fragment" style="position: absolute; top: 333px; left: 333px;">
+							<img src="/Presentation/img/3_4.png">
+						</p>
+						<p class="fragment" style="position: absolute; top: 333px; left: 333px;">
+							<img src="/Presentation/img/3_1.png">
+						</p>
+						<p class="fragment" style="position: absolute; top: 333px; left: 333px;">
+							<img src="/Presentation/img/3_0.png">
+						</p>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					Environment
+					<div>
+						<img src="/Presentation/img/slide4.png">
+					</div>
+				</section>
+				<section>
+					<pre><code class="hljs" data-trim>
+						console.log('1');
+						setTimeout(function a() {
+						console.log('2')},0);
+						console.log('3');
+					  </code></pre>
+					<p class="fragment" style="position: absolute; top: 150px; left: 250px;">
+						<img src="/Presentation/img/4_1.png">
+					</p>
+					<p class="fragment" style="position: absolute; top: 150px; left: 250px;">
+						<img src="/Presentation/img/4_0.png">
+					</p>
+					<p class="fragment" style="position: absolute; top: 150px; left: 250px;">
+						<img src="/Presentation/img/4_2.png">
+					</p>
+					<p class="fragment" style="position: absolute; top: 150px; left: 250px;">
+						<img src="/Presentation/img/4_3.png">
+					</p>
+					<p class="fragment" style="position: absolute; top: 150px; left: 250px;">
+						<img src="/Presentation/img/4_4.png">
+					</p>
+					<p class="fragment" style="position: absolute; top: 150px; left: 250px;">
+						<img src="/Presentation/img/4_5.png">
+					</p>
+					<p class="fragment" style="position: absolute; top: 150px; left: 250px;">
+						<img src="/Presentation/img/4_6.png">
+					</p>
+					<p class="fragment" style="position: absolute; top: 150px; left: 250px;">
+						<img src="/Presentation/img/4_7.png">
+					</p>
+				</section>
+
+
+			</section>
+			<section>
+				Microtask and Macrotask
+				<img src="/Presentation/img/slide5.gif">
+
+
+			</section>
+			<section>
+				<h3>Used sources:</h3>
+				<a href="https://learn.javascript.ru/event-loop">learn.javascript.ru/event-loop</a>
+				<a href="https://habr.com/ru/post/461401/">habr.com/ru/post/461401/</a>
+				<a href="http://latentflip.com/loupe/">latentflip.com/loupe/</a>
+				<a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">youtube.com/watch?v=8aGhZQkoFbQ</a>
+				<a href="https://www.youtube.com/watch?v=j4_9BZezSUA">youtube.com/watch?v=j4_9BZezSUA</a>
+				</section>
+			<section>
+			<h2>Thanks for attention</h2>
+			</section>
 		</div>
+	</div>
 
-		<script src="js/reveal.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+	</script>
+</body>
+
 </html>
